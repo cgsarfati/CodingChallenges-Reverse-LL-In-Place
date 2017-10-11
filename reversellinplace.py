@@ -100,19 +100,26 @@ def reverse_linked_list_in_place_rec(lst):
 
     def _rec_reverse(curr, prev):
 
-        # BASE CASE
-            # traversing through original LL... when curr is None, stop recursing
+    # BASE CASE
+        # traversing through original LL... when curr is None, stop recursing
+        # and return new LL
 
-        # PROGRESSION
-            # same as iteration sol'n inside while loop
-            # call fn until curr is None
+        if not curr:
+            return prev
 
-            nxt = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nxt
+    # PROGRESSION
+        # same as iteration sol'n inside while loop
+        # call fn until curr is None
+
+        nxt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nxt
+
+        return _rec_reverse(curr, prev)
 
     # outside the recursive fn, re-attach head to final LL
+    lst.head = _rec_reverse(curr, prev)
 
 
 if __name__ == '__main__':
