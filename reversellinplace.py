@@ -1,7 +1,7 @@
 """Given linked list, reverse the nodes in this linked list in place.
 
 Iterative solution doctest:
-    
+
     >>> ll1 = LinkedList(Node(1, Node(2, Node(3))))
     >>> ll1.as_string()
     '123'
@@ -53,9 +53,17 @@ class Node(object):
         self.data = data
         self.next = next
 
+
 # Iteration solution.
 def reverse_linked_list_in_place(lst):
     """Given linked list, reverse the nodes in this linked list in place."""
+
+    # build up a new LL, starting with none
+    # traverse original LL, getting current to attach to new LL
+    # need constant reshuffling of prev, current, .next
+    # at the end, re-assign head to finished new LL
+
+
 
 if __name__ == '__main__':
     import doctest
