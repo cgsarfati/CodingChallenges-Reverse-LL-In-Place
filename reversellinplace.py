@@ -53,8 +53,9 @@ class Node(object):
         self.data = data
         self.next = next
 
+# ITERATIVE SOLN
 
-# Iteration solution.
+
 def reverse_linked_list_in_place(lst):
     """Given linked list, reverse the nodes in this linked list in place."""
 
@@ -63,6 +64,16 @@ def reverse_linked_list_in_place(lst):
     # need constant reshuffling of prev, current, .next
     # at the end, re-assign head to finished new LL
 
+    prev = None
+    curr = lst.head
+
+    while curr is not None:
+        next = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next
+
+    lst.head = prev
 
 
 if __name__ == '__main__':
