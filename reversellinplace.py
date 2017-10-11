@@ -64,16 +64,55 @@ def reverse_linked_list_in_place(lst):
     # need constant reshuffling of prev, current, .next
     # at the end, re-assign head to finished new LL
 
+    # initialize new LL as prev where it's initially None; will append overtime
+    # thus, at the end of the LL, last item is pointed to None
     prev = None
+
+    # initialize traversal of LL w/ .head
     curr = lst.head
 
+    # traverse original LL
     while curr is not None:
         next = curr.next
+
+        # attach current item in original LL to new LL
         curr.next = prev
+
+        # reassign prev to be first item in new LL
         prev = curr
+
+        # traverse original LL by one step
         curr = next
 
+    # once traversal done (and new LL fully built), point LL head to first item
     lst.head = prev
+
+# RECURSIVE SOLN
+
+
+def reverse_linked_list_in_place_rec(lst):
+    """Given linked list, RECUSIVELY reverse the nodes
+    in this linked list in place."""
+
+    # Have fn w/ curr (lst.head) and prev (none) as 2 paramaters
+    curr = lst.head
+    prev = None
+
+    def _rec_reverse(curr, prev):
+
+        # BASE CASE
+            # traversing through original LL... when curr is None, stop recursing
+
+        # PROGRESSION
+            # same as iteration sol'n inside while loop
+            # call fn until curr is None
+
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+
+    # outside the recursive fn, re-attach head to final LL
 
 
 if __name__ == '__main__':
